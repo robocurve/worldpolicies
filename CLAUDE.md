@@ -21,3 +21,7 @@ typed registry in `src/worldpolicies/catalog.py`, CI-validated entries, 100% cov
   `uv venv && uv pip install -e ".[dev]" && uv run pytest --cov` (coverage must stay 100%).
 - Eval numbers across rows are NOT comparable unless the protocol matches — never present
   the table as a leaderboard; per-protocol comparisons only.
+- **PyPI readme is transformed at build time** — `hatch-fancy-pypi-readme` rewrites
+  GitHub-only alert syntax (`> [!NOTE]` etc.) in README.md into bold blockquotes
+  (`> **Note:**`) that PyPI renders; keep using alert syntax in the README itself.
+  Config lives at the bottom of pyproject.toml.
