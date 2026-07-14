@@ -40,6 +40,7 @@ def _cmd_info(args: argparse.Namespace) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """Map registry query subcommands to their accepted arguments and handlers."""
     parser = argparse.ArgumentParser(
         prog="worldpolicies",
         description="Robocurve's registry of published robot-policy checkpoints.",
@@ -59,5 +60,6 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> None:
+    """Parse ``argv`` (the process arguments when None) and run the selected registry query."""
     args = build_parser().parse_args(argv)
     args.func(args)
