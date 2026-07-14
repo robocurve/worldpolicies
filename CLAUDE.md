@@ -19,6 +19,8 @@ typed registry in `src/worldpolicies/catalog.py`, CI-validated entries, 100% cov
 
 - `main` is expected to gain branch protection like worldevals (PRs + checks). Dev loop:
   `uv venv && uv pip install -e ".[dev]" && uv run pytest --cov` (coverage must stay 100%).
+- Every public module, class, and function needs a docstring that states its contract rather
+  than restating its name; Ruff D1 enforces this in CI as part of `uv run ruff check .`.
 - Eval numbers across rows are NOT comparable unless the protocol matches — never present
   the table as a leaderboard; per-protocol comparisons only.
 - **PyPI readme is transformed at build time** — `hatch-fancy-pypi-readme` rewrites
