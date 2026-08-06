@@ -50,6 +50,7 @@ worldpolicies info pi05-yam              # one entry in detail
 
 ```python
 from worldpolicies import catalog, get, by_embodiment
+
 print(get("gr00t-n17-so101").hf_url)
 ```
 
