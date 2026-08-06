@@ -106,6 +106,33 @@ CATALOG: tuple[Policy, ...] = (
         tags=("vla", "gr00t", "bimanual"),
     ),
     Policy(
+        name="dreamzero-yam",
+        hf_id="robocurve/dreamzero-yam-molmoact2",
+        title="DreamZero x YAM bimanual (MolmoAct2, LoRA r=32)",
+        description=(
+            "First public DreamZero fine-tune on the AllenAI MolmoAct2-BimanualYAM "
+            "dataset: LoRA (r=32) post-train of GEAR-Dreams/DreamZero-AgiBot (14B "
+            "Wan2.1 world-action model) for the I2RT YAM bimanual platform. Merged, "
+            "stock-loadable release. Reaches parity with the pi0.5 and GR00T "
+            "baselines on a frozen 20-sample protocol (re-scored: pi05 0.002412, "
+            "gr00t 0.002492) while training on 13-27x fewer samples."
+        ),
+        base_model="GEAR-Dreams/DreamZero-AgiBot",
+        embodiment="yam-bimanual",
+        method="lora",
+        framework="dreamzero",
+        eval_metric="open_loop_mse",
+        eval_value=0.002524,
+        eval_protocol=(
+            "frozen 20-sample open-loop action MSE (raw absolute joints, first 16 "
+            "steps) on held-out repo allenai/19012026-block-13; cross-model GT "
+            "identity machine-verified"
+        ),
+        training_repo="https://github.com/robocurve/dreamzero-yam",
+        trained_by="jeqcho",
+        tags=("world-action-model", "dreamzero", "bimanual"),
+    ),
+    Policy(
         name="pi05-yam",
         hf_id="robocurve/pi05-yam-molmoact2",
         title="pi0.5 x YAM bimanual (MolmoAct2, full fine-tune)",
