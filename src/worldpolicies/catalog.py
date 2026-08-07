@@ -99,8 +99,13 @@ CATALOG: tuple[Policy, ...] = (
         method="full-ft",
         framework="isaac-gr00t",
         eval_metric="open_loop_mse",
-        eval_value=0.00279,
-        eval_protocol="open-loop action MSE on held-out repo allenai/19012026-block-13",
+        eval_value=0.002492,
+        eval_protocol=(
+            "frozen 20-sample open-loop action MSE (raw absolute joints, first 16 "
+            "steps) on held-out repo allenai/19012026-block-13; re-scored 2026-08 "
+            "under the cross-model frozen protocol (0.00279 under the original "
+            "final-step protocol)"
+        ),
         training_repo="https://github.com/robocurve/gr00t-n17-yam-replication",
         trained_by="aris",
         tags=("vla", "gr00t", "bimanual"),
@@ -145,8 +150,13 @@ CATALOG: tuple[Policy, ...] = (
         method="full-ft",
         framework="openpi",
         eval_metric="open_loop_mse",
-        eval_value=0.00206,
-        eval_protocol="open-loop action MSE on held-out repo allenai/19012026-block-13",
+        eval_value=0.002412,
+        eval_protocol=(
+            "frozen 20-sample open-loop action MSE (raw absolute joints, first 16 "
+            "steps) on held-out repo allenai/19012026-block-13; re-scored 2026-08 "
+            "under the cross-model frozen protocol (0.00206 under the original "
+            "best-of-curve protocol)"
+        ),
         training_repo="https://github.com/robocurve/pi05-yam-replication",
         trained_by="aris",
         tags=("vla", "pi05", "bimanual"),
