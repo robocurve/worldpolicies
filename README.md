@@ -31,12 +31,18 @@ Each model card follows the
 | Policy | Embodiment | Base model | Method | Eval |
 |---|---|---|---|---|
 | [gr00t-n1.7-so101-molmoact2](https://huggingface.co/robocurve/gr00t-n1.7-so101-molmoact2) | SO-101 | [GR00T-N1.7-3B](https://huggingface.co/nvidia/GR00T-N1.7-3B) | LoRA | eval_loss 0.0273 (held-out episodes) |
-| [gr00t-n1.7-yam-molmoact2](https://huggingface.co/robocurve/gr00t-n1.7-yam-molmoact2) | YAM bimanual | [GR00T-N1.7-3B](https://huggingface.co/nvidia/GR00T-N1.7-3B) | full FT | open-loop MSE 0.00279 (held-out repo) |
-| [pi05-yam-molmoact2](https://huggingface.co/robocurve/pi05-yam-molmoact2) | YAM bimanual | [pi05_base](https://huggingface.co/lerobot/pi05_base) | full FT | open-loop MSE 0.00206 (held-out repo) |
+| [gr00t-n1.7-yam-molmoact2](https://huggingface.co/robocurve/gr00t-n1.7-yam-molmoact2) | YAM bimanual | [GR00T-N1.7-3B](https://huggingface.co/nvidia/GR00T-N1.7-3B) | full FT | open-loop MSE 0.002492 (held-out repo) |
+| [pi05-yam-molmoact2](https://huggingface.co/robocurve/pi05-yam-molmoact2) | YAM bimanual | [pi05_base](https://huggingface.co/lerobot/pi05_base) | full FT | open-loop MSE 0.002412 (held-out repo) |
+| [dreamzero-yam-molmoact2](https://huggingface.co/robocurve/dreamzero-yam-molmoact2) | YAM bimanual | [DreamZero-AgiBot](https://huggingface.co/GEAR-Dreams/DreamZero-AgiBot) | LoRA r=32 | open-loop MSE 0.002524 (held-out repo) |
 
-Lower is better for all three metrics. Only compare rows that share a
-protocol: the two YAM rows do, the SO-101 row does not. Each model card has
-the details.
+Lower is better for all metrics. The three YAM rows share a single frozen
+20-sample protocol (raw absolute joints, first 16 predicted steps,
+cross-model ground-truth identity machine-verified; re-scored 2026-08) and
+are directly comparable — a statistical three-way tie, with DreamZero
+trained on 13-27x fewer samples. Per-sample results ship in the DreamZero
+release repo's
+[`eval/`](https://huggingface.co/robocurve/dreamzero-yam-molmoact2/tree/main/eval)
+folder. The SO-101 row uses a different metric and is not comparable.
 
 ## Install & use
 

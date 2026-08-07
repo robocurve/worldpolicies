@@ -68,5 +68,5 @@ def test_cli_list_filters(capsys: pytest.CaptureFixture[str]) -> None:
 def test_cli_info(capsys: pytest.CaptureFixture[str]) -> None:
     main(["info", "pi05-yam"])
     out = capsys.readouterr().out
-    assert "open_loop_mse = 0.00206" in out
+    assert "open_loop_mse = 0.002412" in out
     assert "https://huggingface.co/robocurve/pi05-yam-molmoact2" in out
